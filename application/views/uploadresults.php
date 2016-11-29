@@ -145,27 +145,94 @@ function checkSizeAssignment(upimage,i){
     </head>
     <body>
         <!-- START PAGE CONTAINER -->
-        <div class="page-container">
+        <div class="page-container" style="height: 662px; ">
             
             <!-- START PAGE SIDEBAR -->
             <div class="page-sidebar">
                 <!-- START X-NAVIGATION -->
                 <ul class="x-navigation">
                     <li class="xn-logo">
-                        <a href="index.html">Edulink</a>
+                        <a href="<?php echo base_url('index.php/page_controller/loadingpages/home') ?>">Edulink</a>
                         <a href="#" class="x-navigation-control"></a>
-                    </li>                                                                      
+                    </li>
+
+
+
+<?php
+
+$name=$_SESSION["first_username"];
+//$_SESSION['name'];
+$propic=$_SESSION["propic"];
+
+?>
+
+
+
+
+
+<li class="xn-profile">
+                       
+                        <div class="profile">
+                            <div class="profile-image">
+                                <img src='<?php echo base_url($propic); ?>' alt="No image">
+                            </div>
+                            <div class="profile-data">
+                                <div class="profile-data-name"><?php echo $name; ?></div>
+                                <div class="profile-data-title">Student</div>
+                            </div>
+                           
+                        </div>                                                                        
+                    </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     <li class="xn-title">Navigation</li>
-                    <li>
+                    
                        
 
 
+<li>
+  <a href="<?php echo base_url('index.php/page_controller/loadingpages/home') ?>"><span class="fa fa-desktop"></span>  <span class="xn-text"> Home</span> </a>
+  </li>
+  <li>
+  <a href="<?php echo site_url('page_controller/loadingpages/student_profile') ?>"><span class="fa fa-user"></span>  <span class="xn-text"> Profile</span> </a>
+  </li>
+  <li>
+  <a href="<?php echo site_url('page_controller/loadingpages/uploadresults') ?>"><span class="fa fa-floppy-o"></span>  <span class="xn-text"> Upload results </span> </a>
+  </li>
+  <li>
+  <a href="<?php echo site_url('page_controller/loadingpages/contact') ?>"><span class="fa fa-envelope"></span>  <span class="xn-text"> Contact</span> </a>
+  </li>
+                      <li class="xn-icon-button pull-right">
+                        <a href="#" class="mb-control" data-box="#mb-signout"><span class="fa fa-sign-out"></span> <span class="xn-text"> Logout</span></a>                        
+                    </li> 
 
-  <a href="<?php echo site_url('page_controller/loadingpages/home') ?>"><span class="fa fa-desktop"></span>  <span class="xn-text"> Home</span> </a>
-  <a href="profile.php"><span class="fa fa-desktop"></span>  <span class="xn-text"> Profile</span> </a>
-  <a href="<?php echo site_url('page_controller/loadingpages/uploadresults') ?>"><span class="fa fa-desktop"></span>  <span class="xn-text"> Upload results </span> </a>
-  <a href="<?php echo site_url('page_controller/loadingpages/contact') ?>"><span class="fa fa-desktop"></span>  <span class="xn-text"> Contact</span> </a>
-  <a href="<?php echo site_url('page_controller/loadingpages/logout') ?>"><span class="fa fa-desktop"></span>  <span class="xn-text"> Logout</span> </a>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -185,6 +252,7 @@ function checkSizeAssignment(upimage,i){
                     <li class="xn-icon-button">
                         <a href="#" class="x-navigation-minimize"><span class="fa fa-dedent"></span></a>
                     </li>
+                                        <li style="color:white; padding-top: 16px;" >Loged in as  <?php echo $name?></li>
                     <!-- END TOGGLE NAVIGATION -->                    
                 </ul>
                 <!-- END X-NAVIGATION VERTICAL -->                     
@@ -197,10 +265,6 @@ function checkSizeAssignment(upimage,i){
                 <!-- END BREADCRUMB -->                
 
 
-<?php
-$name="R.M.R Wanigasekara";
-//$_SESSION['name'];
-?>
 
 
                 
@@ -554,34 +618,23 @@ foreach ($current_results ->result_array() as $row3) {
                     </div>
                     <div class="mb-footer">
                         <div class="pull-right">
-                            <a href="pages-login.html" class="btn btn-success btn-lg">Yes</a>
+                            <a href="<?php echo site_url('login_controller../../../') ?>" class="btn btn-success btn-lg">Yes</a>
                             <button class="btn btn-default btn-lg mb-control-close">No</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
         <!-- END MESSAGE BOX-->
 
         <!-- START PRELOADS -->
-        <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
-        <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
-        <!-- END PRELOADS -->                 
-        
-    <!-- START SCRIPTS -->
-        <!-- START PLUGINS -->
-        <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
-        <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
-        <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>        
-        <!-- END PLUGINS -->
+       
+             <?php
 
-        <!-- THIS PAGE PLUGINS -->
+      include 'imports.php'
+      ?>
 
-        <!-- END PAGE PLUGINS -->         
-
-        <!-- START TEMPLATE -->
-        <script type="text/javascript" src="js/plugins.js"></script>        
-        <script type="text/javascript" src="js/actions.js"></script>        
         <!-- END TEMPLATE -->
     <!-- END SCRIPTS -->         
     </body>

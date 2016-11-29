@@ -6,6 +6,7 @@ function __construct() {
 
 parent::__construct();
 $this->load->model("Results_model");
+$this->load->model("Student_Data_Model");
  $this->load->helper('url_helper');
 
 
@@ -18,9 +19,10 @@ $this->load->model("Results_model");
 
     public function loadingpages(){
         $page=$this->uri->segment(3);
+        $user_Id= $_SESSION["user_ID"];
         if($page=='uploadresults'){
       
- $user_Id=1001;
+ 
 
         
          $data['current_results'] = $this->Results_model->load_results($user_Id);
@@ -32,7 +34,14 @@ $this->load->model("Results_model");
 
     $this->load->view('home');
 }elseif ($page=='logout') {
-        $this->load->view('login_view');
+
+    $this->load->view('login_view');
+
+}elseif($page=='student_profile'){
+   
+
+         $data['profile_data'] = $this->Student_Data_Model->get_User_Data($user_Id);
+         $this->load->view('student_profile_data',$data);
 }
 
              }
