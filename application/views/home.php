@@ -83,7 +83,7 @@ $propic=$_SESSION["propic"];
                        
 
 
-<li>
+<li class="active">
   <a href="<?php echo base_url('index.php/page_controller/loadingpages/home') ?>"><span class="fa fa-desktop"></span>  <span class="xn-text"> Home</span> </a>
   </li>
   <li>
@@ -146,7 +146,7 @@ $propic=$_SESSION["propic"];
 
                 
                 <div class="page-title">                    
-                    <h2><span class="fa fa-arrow-circle-o-left"></span>Hello <?php echo $name?>, Welcome to EDULink</h2>
+                    <h2><span class="fa fa-arrow-circle-o-left"></span>Hello <?php echo $name?>, Welcome to Edulink</h2>
                 </div>                   
                 
 

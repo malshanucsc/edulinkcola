@@ -17,9 +17,12 @@ $this->load->model("Student_Data_Model");
 
  	}
 
+
     public function loadingpages(){
         $page=$this->uri->segment(3);
         $user_Id= $_SESSION["user_ID"];
+
+
         if($page=='uploadresults'){
       
  
@@ -28,7 +31,7 @@ $this->load->model("Student_Data_Model");
          $data['current_results'] = $this->Results_model->load_results($user_Id);
          $this->load->view('uploadresults',$data);
 }elseif ($page=='contact') {
-    
+
     $this->load->view('contact');
 }elseif ($page=='home') {
 
@@ -42,6 +45,14 @@ $this->load->model("Student_Data_Model");
 
          $data['profile_data'] = $this->Student_Data_Model->get_User_Data($user_Id);
          $this->load->view('student_profile_data',$data);
+}elseif($page=='admission_officer'){
+   
+        $this->load->view('admission_officer');
+}elseif($page=='admission_officer_student_list'){
+
+       $data['admissionstudent'] = $this->Student_Data_Model->get_Student_Data($user_Id);
+   
+        $this->load->view('admission_officer_student_list',$data);
 }
 
              }
